@@ -85,7 +85,7 @@ public class AppointmentsDAO {
         return sql;
     }
     public static String fillContactIDCombo(){
-        String sql = "SELECT Contact_Name FROM contacts";
+        String sql = "SELECT Contact_ID FROM contacts";
         return sql;
     }
 }

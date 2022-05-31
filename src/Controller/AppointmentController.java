@@ -93,6 +93,15 @@ public class AppointmentController implements Initializable {
      */
     @FXML
     void addAppointmentAction (ActionEvent event) throws SQLException {
+        if(titleText.getText().isEmpty() || locText.getText().isEmpty() || typeText.getText().isEmpty() || descText.getText().isEmpty() ||
+                customerIDCombo.getSelectionModel().isEmpty() || userIDCombo.getSelectionModel().isEmpty() || startTimeCombo.getSelectionModel().isEmpty() ||
+                endTimeCombo.getSelectionModel().isEmpty() || contactIDCombo.getSelectionModel().isEmpty()){
+            Alerts.displayAlert(2);
+            return;
+        }
+        if(!Alerts.alertConfirmation(3)){
+            return;
+        }
         LocalDate localDateEnd = dateDP.getValue();
         LocalDate localDateStart = dateDP.getValue();
 
@@ -109,14 +118,6 @@ public class AppointmentController implements Initializable {
 
         ZonedDateTime convertStartEST = zoneDtStart.withZoneSameInstant(ZoneId.of("America/New_York"));
         ZonedDateTime convertEndEST = zoneDtEnd.withZoneSameInstant(ZoneId.of("America/New_York"));
-
-        if(titleText.getText().isEmpty() || locText.getText().isEmpty() || typeText.getText().isEmpty()){
-            Alerts.displayAlert(2);
-            return;
-        }
-        if(!Alerts.alertConfirmation(3)){
-            return;
-        }
 
         if(convertStartEST.toLocalDate().getDayOfWeek().getValue() == (DayOfWeek.SATURDAY.getValue()) || convertStartEST.toLocalDate().getDayOfWeek().getValue() == (DayOfWeek.SUNDAY.getValue()) ||
                 convertEndEST.toLocalDate().getDayOfWeek().getValue() == (DayOfWeek.SATURDAY.getValue())  || convertEndEST.toLocalDate().getDayOfWeek().getValue() == (DayOfWeek.SUNDAY.getValue()) ){
@@ -153,8 +154,8 @@ public class AppointmentController implements Initializable {
             return;
         }
         if (titleText.getText().isEmpty() || locText.getText().isEmpty() || typeText.getText().isEmpty() || descText.getText().isEmpty() ||
-                customerIDCombo.getPromptText() == "Customer ID" || userIDCombo.getPromptText() == "User ID" || startTimeCombo.getPromptText() == "Start Time" ||
-                endTimeCombo.getPromptText() == "End Time" || contactIDCombo.getPromptText() == "Contact ID"){
+                customerIDCombo.getSelectionModel().isEmpty() || userIDCombo.getSelectionModel().isEmpty() || startTimeCombo.getSelectionModel().isEmpty() ||
+                endTimeCombo.getSelectionModel().isEmpty() || contactIDCombo.getSelectionModel().isEmpty()){
             Alerts.displayAlert(2);
             return;
         }

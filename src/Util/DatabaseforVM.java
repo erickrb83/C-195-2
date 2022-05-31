@@ -7,12 +7,12 @@ import java.sql.*;
  *
  * Database Connection
  */
-public class Database {
+public class DatabaseforVM {
     //variables used to connect to database
     private static final String databaseName = "client_schedule";
-    private static final String databaseURL = "jdbc:mysql://localhost:8889/" + databaseName + "?useSSL=false&serverTimezone=UTC";
-    private static final String username = "root";
-    private static final String password = "root";
+    private static final String databaseURL = "jdbc:mysql://localhost:3306/" + databaseName;
+    private static final String username = "sqlUser";
+    private static final String password = "Passw0rd!";
     private static PreparedStatement ps;
 
     public static Connection openConnection() throws SQLException {
