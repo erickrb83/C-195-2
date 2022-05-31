@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="450.0" prefWidth="630.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ReportsController">
+   <children>
+      <TabPane layoutX="2.0" layoutY="32.0" prefHeight="358.0" prefWidth="624.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="appointmentTotalReport" text="Appointment Totals">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="appointmentTypeTable" layoutX="72.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn fx:id="appointmentTypeColumn" prefWidth="95.0" text="Type" />
+                            <TableColumn fx:id="appointmentTypeTotalColumn" prefWidth="104.0" text="Total" />
+                          </columns>
+                        </TableView>
+                        <TableView fx:id="monthAppointmentTable" layoutX="356.0" layoutY="64.0" prefHeight="200.0" prefWidth="200.0">
+                           <columns>
+                              <TableColumn fx:id="appointmentMonthColumn" prefWidth="107.0" text="Month" />
+                              <TableColumn fx:id="appointmentMonthTotalColumn" prefWidth="92.0" text="Total" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="contactScheduleReport" text="Contact's Schedule">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="327.0" prefWidth="577.0">
+                     <children>
+                        <TableView fx:id="contactScheduleTable" layoutX="-1.0" layoutY="93.0" prefHeight="200.0" prefWidth="624.0">
+                          <columns>
+                            <TableColumn fx:id="contactAppointmentIDColumn" prefWidth="99.0" text="Appointment ID" />
+                            <TableColumn fx:id="contactTitleColumn" prefWidth="66.0" text="Title" />
+                              <TableColumn fx:id="contactTypeColumn" prefWidth="83.0" text="Type" />
+                              <TableColumn fx:id="contactDescriptionColumn" prefWidth="124.0" text="Description" />
+                              <TableColumn fx:id="contactStartColumn" prefWidth="82.0" text="Start" />
+                              <TableColumn fx:id="contactEndColumn" prefWidth="88.0" text="End" />
+                              <TableColumn fx:id="contactCustomerIDColumn" prefWidth="81.0" text="Customer ID" />
+                          </columns>
+                        </TableView>
+                        <ComboBox fx:id="contactNameComboBox" layoutX="374.0" layoutY="35.0" onAction="#contactNameChange" prefWidth="150.0" />
+                        <Label layoutX="282.0" layoutY="39.0" text="Contact Name" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="recentUpdateReport" text="Recent Updates">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="recentUpdateTable" layoutX="18.0" layoutY="61.0" prefHeight="253.0" prefWidth="590.0">
+                          <columns>
+                            <TableColumn fx:id="userNameColumn" prefWidth="98.0" text="User Name" />
+                              <TableColumn fx:id="updatedIDColumn" prefWidth="170.0" text="Updated ID" />
+                            <TableColumn fx:id="lastUpdatedColumn" prefWidth="167.0" text="Last Update" />
+                          </columns>
+                        </TableView>
+                        <RadioButton fx:id="monthRadio" layoutX="548.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateRadioClick" text="Month">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="recentUpdates" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="allRadio" layoutX="492.0" layoutY="25.0" mnemonicParsing="false" onAction="#updateRadioClick" selected="true" text="All" toggleGroup="$recentUpdates" />
+                        <ComboBox fx:id="tableNameCombo" layoutX="18.0" layoutY="21.0" prefWidth="150.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="back" layoutX="542.0" layoutY="402.0" mnemonicParsing="false" onAction="#backButtonAction" text="Back" />
+   </children>
+</AnchorPane>
