@@ -7,7 +7,7 @@ import java.sql.*;
  *
  * Database Connection
  */
-public class Database {
+public class DatabaseOriginal {
     //variables used to connect to database
     private static final String databaseName = "client_schedule";
     private static final String databaseURL = "jdbc:mysql://localhost:8889/" + databaseName + "?useSSL=false&serverTimezone=UTC";
