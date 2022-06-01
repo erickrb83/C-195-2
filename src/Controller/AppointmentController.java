@@ -154,8 +154,8 @@ public class AppointmentController implements Initializable {
             return;
         }
         if (titleText.getText().isEmpty() || locText.getText().isEmpty() || typeText.getText().isEmpty() || descText.getText().isEmpty() ||
-                customerIDCombo.getSelectionModel().isEmpty() || userIDCombo.getSelectionModel().isEmpty() || startTimeCombo.getSelectionModel().isEmpty() ||
-                endTimeCombo.getSelectionModel().isEmpty() || contactIDCombo.getSelectionModel().isEmpty()){
+                customerIDCombo.getPromptText() == null || userIDCombo.getPromptText() == null || startTimeCombo.getPromptText() == null ||
+                endTimeCombo.getPromptText() == null || contactIDCombo.getPromptText() == null){
             Alerts.displayAlert(2);
             return;
         }
